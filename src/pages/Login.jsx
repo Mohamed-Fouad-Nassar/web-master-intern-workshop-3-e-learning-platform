@@ -94,7 +94,7 @@ export default function Login() {
               </FormItem>
             )}
           />
-          <Link to="forgot-password" className="!mt-0 w-fit underline">
+          <Link to="/auth/forgot-password" className="!mt-0 w-fit underline">
             Forgot your password?
           </Link>
           <SubmitBtn disabled={form.formState.isSubmitting} type="submit">
