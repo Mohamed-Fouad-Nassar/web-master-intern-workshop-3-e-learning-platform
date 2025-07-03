@@ -17,25 +17,37 @@ export const passwordSchema = z
 
 export const cpasswordSchema = z.string();
 
-export const RegisterSchema = z
-  .object({
-    fn: z
-      .string()
-      .min(1, { message: "First name is required" })
-      .max(50, { message: "First name must be less than 50 characters" }),
-    ln: z
-      .string()
-      .min(1, { message: "Last name is required" })
-      .max(50, { message: "Last name must be less than 50 characters" }),
-    email: emailSchema,
-    password: passwordSchema,
-    cpassword: cpasswordSchema,
-    phoneNumber: z.string().regex(/^01[0-2,5]{1}[0-9]{8}$/, {
-      message: "Phone number must be a valid mobile number",
-    }),
-    classLevel: z.string().min(1, { message: "Class level is required" }),
-  })
-  .refine((data) => data.password === data.cpassword, {
+const RegisterSchemaBase = z.object({
+  fn: z
+    .string()
+    .min(1, { message: "First name is required" })
+    .max(50, { message: "First name must be less than 50 characters" }),
+  ln: z
+    .string()
+    .min(1, { message: "Last name is required" })
+    .max(50, { message: "Last name must be less than 50 characters" }),
+  email: emailSchema,
+  password: passwordSchema,
+  cpassword: cpasswordSchema,
+  phoneNumber: z.string().regex(/^01[0-2,5]{1}[0-9]{8}$/, {
+    message: "Phone number must be a valid mobile number",
+  }),
+  classLevel: z.string().min(1, { message: "Class level is required" }),
+});
+
+// Normal user schema
+export const RegisterSchema = RegisterSchemaBase.refine(
+  (data) => data.password === data.cpassword,
+  {
     message: "Passwords do not match",
     path: ["cpassword"],
-  });
+  }
+);
+
+// Admin register (classLevel optional)
+export const RegisterSchemaNoClassLevel = RegisterSchemaBase.extend({
+  classLevel: z.string().optional(),
+}).refine((data) => data.password === data.cpassword, {
+  message: "Passwords do not match",
+  path: ["cpassword"],
+});

@@ -9,23 +9,25 @@ import {
 } from "@/components/ui/select";
 import StudentsTable from "@/features/admin/StudentsTable";
 import { useAllUsers } from "@/hooks/admin/useAllUsers";
+import { useAllAdmins } from "@/hooks/admin/useAllAdmins";
 
-export default function DashStudents() {
-  const { data, isLoading, isError } = useAllUsers();
+export default function DashStudents({ user }) {
+  const { data, isLoading, isError } =
+    user === "admin" ? useAllAdmins() : useAllUsers();
   const [searchType, setSearchType] = useState("name");
   const [searchTerm, setSearchTerm] = useState("");
 
-  const students = (data || []).filter((u) => u.role === "user");
+  const users = data || [];
 
-  const filteredStudents = students.filter((student) => {
+  const filteredUsers = users.filter((u) => {
     if (searchType === "name") {
-      return student.fullName.toLowerCase().includes(searchTerm.toLowerCase());
+      return u.fullName.toLowerCase().includes(searchTerm.toLowerCase());
     }
     if (searchType === "email") {
-      return student.email.toLowerCase().includes(searchTerm.toLowerCase());
+      return u.email.toLowerCase().includes(searchTerm.toLowerCase());
     }
     if (searchType === "phone") {
-      return student.phoneNumber.includes(searchTerm);
+      return u.phoneNumber.includes(searchTerm);
     }
     return true;
   });
@@ -62,9 +64,8 @@ export default function DashStudents() {
       ) : isError ? (
         <p className="text-destructive">Error loading students</p>
       ) : (
-        <StudentsTable students={filteredStudents} />
+        <StudentsTable user_role={user} data={filteredUsers} />
       )}
     </div>
   );
 }
-

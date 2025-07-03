@@ -1,25 +1,22 @@
 // src/services/AdminAPI.js
 import axios from "axios";
 import {
-  ALL_ADMIN_URL,
   ALL_EXAMS_URL,
   CREATE_EXAM_URL,
   UPDATE_EXAM_URL,
   DELETE_EXAM_URL,
   GET_SINGLE_EXAM_URL,
-
   ALL_QUESTIONS_URL,
   CREATE_QUESTION_URL,
   UPDATE_QUESTION_URL,
   DELETE_QUESTION_URL,
   GET_SINGLE_QUESTION_URL,
-
   ALL_LESSONS_URL,
   ALL_USERS_URL,
   USER_URL,
 } from "./api";
 
-const getTokenHeader = () => {
+export const getTokenHeader = () => {
   const token = localStorage.getItem("token");
   return {
     headers: {
@@ -35,27 +32,24 @@ export async function fetchAllUsersAPI() {
     return { success: true, users: response.data?.data || [] };
   } catch (error) {
     console.error("Failed to fetch users:", error);
-    return { success: false, message: error.response?.data?.message || "Error fetching users" };
-  }
-}
-
-export async function fetchAllAdminsAPI() {
-  try {
-    const response = await axios.get(ALL_ADMIN_URL, getTokenHeader());
-    return { success: true, admins: response.data?.data || [] };
-  } catch (error) {
-    console.error("Failed to fetch admins:", error);
-    return { success: false, message: error.response?.data?.message || "Error fetching admins" };
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error fetching users",
+    };
   }
 }
 
 export async function fetchCurrentUserAPI() {
   try {
     const response = await axios.get(USER_URL, getTokenHeader());
+    console.log(response);
     return { success: true, user: response.data?.data };
   } catch (error) {
     console.error("Failed to fetch current user:", error);
-    return { success: false, message: error.response?.data?.message || "Error fetching user" };
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error fetching user",
+    };
   }
 }
 
@@ -66,7 +60,10 @@ export async function fetchLessonsAPI() {
     return { success: true, lessons: response.data?.data || [] };
   } catch (error) {
     console.error("Failed to fetch lessons:", error);
-    return { success: false, message: error.response?.data?.message || "Error fetching lessons" };
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error fetching lessons",
+    };
   }
 }
 
@@ -77,7 +74,10 @@ export async function fetchExamsAPI() {
     return { success: true, exams: response.data?.data || [] };
   } catch (error) {
     console.error("Failed to fetch exams:", error);
-    return { success: false, message: error.response?.data?.message || "Error fetching exams" };
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error fetching exams",
+    };
   }
 }
 
@@ -87,7 +87,10 @@ export async function createExamAPI(formData) {
     return { success: true };
   } catch (error) {
     console.error("Failed to create exam:", error);
-    return { success: false, message: error.response?.data?.message || "Error creating exam" };
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error creating exam",
+    };
   }
 }
 
@@ -97,7 +100,10 @@ export async function updateExamAPI(id, formData) {
     return { success: true };
   } catch (error) {
     console.error("Failed to update exam:", error);
-    return { success: false, message: error.response?.data?.message || "Error updating exam" };
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error updating exam",
+    };
   }
 }
 
@@ -107,7 +113,10 @@ export async function deleteExamAPI(id) {
     return { success: true };
   } catch (error) {
     console.error("Failed to delete exam:", error);
-    return { success: false, message: error.response?.data?.message || "Error deleting exam" };
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error deleting exam",
+    };
   }
 }
 
@@ -117,7 +126,10 @@ export async function fetchExamByIdAPI(id) {
     return { success: true, exam: response.data?.data };
   } catch (error) {
     console.error("Failed to fetch exam:", error);
-    return { success: false, message: error.response?.data?.message || "Error fetching exam" };
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error fetching exam",
+    };
   }
 }
 
@@ -128,33 +140,47 @@ export async function fetchQuestionsAPI() {
     return { success: true, questions: response.data?.data || [] };
   } catch (error) {
     console.error("Failed to fetch questions:", error);
-    return { success: false, message: error.response?.data?.message || "Error fetching questions" };
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error fetching questions",
+    };
   }
 }
 
-  export async function createQuestionAPI(formData) {
-    try {
-      const response = await axios.post(CREATE_QUESTION_URL, formData, getTokenHeader());
-      return {
-        success: true,
-        question: response.data?.data,
-      };
-    } catch (error) {
-      console.error("Failed to create question:", error);
-      return {
-        success: false,
-        message: error.response?.data?.message || "Error creating question",
-      };
-    }
+export async function createQuestionAPI(formData) {
+  try {
+    const response = await axios.post(
+      CREATE_QUESTION_URL,
+      formData,
+      getTokenHeader()
+    );
+    return {
+      success: true,
+      question: response.data?.data,
+    };
+  } catch (error) {
+    console.error("Failed to create question:", error);
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error creating question",
+    };
   }
+}
 
 export async function updateQuestionAPI(id, formData) {
   try {
-    const response = await axios.put(UPDATE_QUESTION_URL(id), formData, getTokenHeader());
+    const response = await axios.put(
+      UPDATE_QUESTION_URL(id),
+      formData,
+      getTokenHeader()
+    );
     return { success: true, question: response.data?.data };
   } catch (error) {
     console.error("Failed to update question:", error);
-    return { success: false, message: error.response?.data?.message || "Error updating question" };
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error updating question",
+    };
   }
 }
 
@@ -164,16 +190,25 @@ export async function deleteQuestionAPI(id) {
     return { success: true };
   } catch (error) {
     console.error("Failed to delete question:", error);
-    return { success: false, message: error.response?.data?.message || "Error deleting question" };
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error deleting question",
+    };
   }
 }
 
 export async function fetchQuestionByIdAPI(id) {
   try {
-    const response = await axios.get(GET_SINGLE_QUESTION_URL(id), getTokenHeader());
+    const response = await axios.get(
+      GET_SINGLE_QUESTION_URL(id),
+      getTokenHeader()
+    );
     return { success: true, question: response.data?.data };
   } catch (error) {
     console.error("Failed to fetch question:", error);
-    return { success: false, message: error.response?.data?.message || "Error fetching question" };
+    return {
+      success: false,
+      message: error.response?.data?.message || "Error fetching question",
+    };
   }
 }

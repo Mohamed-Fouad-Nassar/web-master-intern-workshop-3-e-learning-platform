@@ -10,6 +10,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  .input-icon {
+    @apply absolute rounded-full transition-all duration-300 hover:bg-gray-400 right-2 top-1/2 -translate-y-1/2 p-1 z-10 h-[90%] flex items-center justify-center cursor-pointer;
+  }
 }
 
 @theme inline {
