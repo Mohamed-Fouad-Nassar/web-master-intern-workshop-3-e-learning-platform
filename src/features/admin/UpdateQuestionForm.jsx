@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { useUpdateQuestion } from "@/hooks/admin/questions/UseUpdateQuestion";
 
-export default function UpdateQuestionForm({ question, exams = [], onSuccess }) {
+export default function UpdateQuestionForm({ question, onSuccess }) {
   const { register, handleSubmit, setValue, watch, reset, control, formState: { errors } } = useForm({
     resolver: zodResolver(questionSchema),
     defaultValues: {
