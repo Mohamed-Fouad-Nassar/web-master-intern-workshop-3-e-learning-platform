@@ -41,7 +41,6 @@ export default function AddQuestionForm({ exams = [], onSuccess }) {
   const watchType = watch("type");
   const { mutate: addQuestion, isPending } = useAddQuestion();
 
-  // ✅ تحديث الخيارات تلقائيًا عند تغيير النوع
   useEffect(() => {
     if (watchType === "true-false") {
       setValue("options", ["True", "False"]);
@@ -62,7 +61,7 @@ const onSubmitForm = (data) => {
   if (data.type === "true-false") {
     data.options = ["True", "False"];
   } else if (data.type === "short-answer") {
-    delete data.options; // نحذفها نهائيًا
+    delete data.options; 
   }
 
   console.log("✅ Submitting question:", data);
