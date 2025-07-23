@@ -1,23 +1,23 @@
-import { AccordionDemo } from "@/components/AccordionDemo";
-import LessonDetails from "@/components/LessonDetails";
-import { LessonReviews } from "@/components/LessonReviews";
-import MoreCourses from "@/components/MoreCourses";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { usePaidLesson } from "@/features/lesson/usePaidLesson";
-import { AlertCircleIcon, Loader2 } from "lucide-react";
 import React from "react";
 import { useParams } from "react-router";
+import { AlertCircleIcon, Loader2 } from "lucide-react";
+
+import MoreCourses from "@/components/MoreCourses";
+import LessonDetails from "@/components/LessonDetails";
+import { LessonReviews } from "@/components/LessonReviews";
+import { AccordionDemo } from "@/components/AccordionDemo";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+
+import { usePaidLesson } from "@/features/lesson/usePaidLesson";
+
+import { convertToYoutubeEmbedUrl } from "@/lib/utils";
 
 function PaidLesson() {
   const { id } = useParams();
   const { data, error, isLoading } = usePaidLesson(id);
 
   if (isLoading)
-    return (
-      <div className="flex justify-center items-center min-h-[90vh] w-full">
-        <Loader2 className="animate-spin size-8 mx-auto mt-10" />
-      </div>
-    );
+    return <Loader2 className="animate-spin size-8 mx-auto my-20" />;
 
   if (error)
     return (
@@ -28,12 +28,14 @@ function PaidLesson() {
         </AlertDescription>
       </Alert>
     );
+
   const sections = [
     { id: "details", title: "Details" },
     { id: "instructor", title: "Instructor" },
     { id: "course", title: "Course" },
     { id: "reviews", title: "Reviews" },
   ];
+
   return (
     <div>
       <div className="container mx-auto px-4 py-8">
@@ -42,7 +44,7 @@ function PaidLesson() {
           <div className="w-full lg:w-2/3 flex flex-col gap-6">
             <div className="w-full aspect-video">
               <iframe
-                src={data?.video}
+                src={convertToYoutubeEmbedUrl(data?.video)}
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -50,12 +52,14 @@ function PaidLesson() {
                 className="rounded-lg shadow-lg w-full h-full"
               ></iframe>
             </div>
+
             <LessonDetails
               description={data.description}
               title={data.title}
               sections={sections}
               use="paid"
             />
+
             <div id="course" className="w-full lg:w-1/3 md:hidden">
               <h1 className="font-extrabold text-2xl mb-3" id={sections[2].id}>
                 {sections[2].title}
@@ -63,6 +67,7 @@ function PaidLesson() {
               <AccordionDemo title={data.title} disabled={false} />
             </div>
           </div>
+
           <div id="course" className="w-full lg:w-1/3 max-md:hidden">
             <h1 className="font-extrabold text-2xl mb-3" id={sections[2].id}>
               {sections[2].title}
@@ -70,12 +75,14 @@ function PaidLesson() {
             <AccordionDemo title={data.title} disabled={false} />
           </div>
         </div>
+
         <div className="mt-8">
           <h1 className="font-extrabold text-2xl mb-3" id={sections[3].id}>
             {sections[3].title}
           </h1>
           <LessonReviews />
         </div>
+
         <div className="w-full">
           <MoreCourses id={id} />
         </div>

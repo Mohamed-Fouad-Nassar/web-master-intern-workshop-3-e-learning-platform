@@ -56,6 +56,7 @@ export async function getCurrentUser(token) {
       token,
     },
   });
+
   if (!res.data.success) throw new Error(res.data.message);
 
   return res.data.data;
@@ -81,7 +82,7 @@ export async function RegisterUser(userData, form) {
   } catch (error) {
     const message = error.response?.data?.message;
 
-    const errMessage = "email already used or phonenumber";
+    const errMessage = "email already used or phone number";
     if (message === "user already exist") {
       form.setError("email", { message: errMessage });
       form.setError("phoneNumber", { message: errMessage });

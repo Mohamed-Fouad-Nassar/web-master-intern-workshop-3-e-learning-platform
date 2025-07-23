@@ -1,7 +1,7 @@
-import { usePaidLesson } from "@/features/lesson/usePaidLesson";
 import { Loader2 } from "lucide-react";
-// import { useState } from "react";
 import { Navigate, useParams } from "react-router";
+
+import { usePaidLesson } from "@/features/lesson/usePaidLesson";
 
 const ProtectedLessonRoute = ({ children, use }) => {
   const { id } = useParams();
@@ -9,11 +9,7 @@ const ProtectedLessonRoute = ({ children, use }) => {
   const hasAccess = !!data && !isError;
 
   if (isLoading)
-    return (
-      <div className="flex justify-center items-center min-h-[90vh] w-full">
-        <Loader2 className="animate-spin size-20 mx-auto mt-10" />
-      </div>
-    );
+    return <Loader2 className="animate-spin size-8 mx-auto my-10" />;
 
   if (use === "payRoute") {
     if (hasAccess) return <Navigate to={`/lessons/${id}`} replace />;

@@ -12,5 +12,10 @@ export default function useUser() {
     enabled: !!token,
   });
 
+  if (!isLoading && !data) {
+    localStorage.removeItem("token");
+    queryClient.removeQueries(["user-token", "user"]);
+  }
+
   return { isLoading, data, error };
 }

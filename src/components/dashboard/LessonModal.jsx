@@ -1,4 +1,17 @@
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2, Pen, PlusCircle } from "lucide-react";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Dialog,
   DialogClose,
@@ -9,27 +22,18 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { DatePicker } from "./DatePicker";
+import { Textarea } from "../ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Loader2, Pen, PlusCircle } from "lucide-react";
-import { Textarea } from "../ui/textarea";
-import { Controller, useForm } from "react-hook-form";
-import { DatePicker } from "./DatePicker";
-import { useEffect, useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { lessonFormSchema } from "@/validations/LessonFormSchema";
-import useCreateLesson from "@/features/lesson/useCreateLesson";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { updateLesson } from "@/services/lessonAPI";
+import { Button } from "@/components/ui/button";
+
 import useLessons from "@/features/lessons/useLessons";
+import useCreateLesson from "@/features/lesson/useCreateLesson";
+
+import { updateLesson } from "@/services/lessonAPI";
+
+import { lessonFormSchema } from "@/validations/LessonFormSchema";
 
 export function LessonModalFrom({ use, id }) {
   const { mutateAsync: createLesson } = useCreateLesson();
@@ -88,7 +92,7 @@ export function LessonModalFrom({ use, id }) {
     } else {
       setDateError(false);
     }
-  }, [date]);
+  }, [date, today]);
 
   const inputs = [
     { name: "Title", placeholder: "Enter lesson title" },
@@ -147,9 +151,7 @@ export function LessonModalFrom({ use, id }) {
         <Button
           size={use === "Add" ? "default" : "sm"}
           variant={use === "Add" ? "default" : "ghost"}
-          className={
-            use === "Add" ? `bg-primary text-white flex items-center gap-2` : ""
-          }
+          className={use === "Add" ? `flex items-center gap-2` : ""}
         >
           {use === "Add" ? (
             <>
@@ -180,7 +182,7 @@ export function LessonModalFrom({ use, id }) {
                   {...register(input.name)}
                 />
                 {errors[input.name] && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-destructive text-sm mt-1">
                     {errors[input.name].message}
                   </p>
                 )}
@@ -213,7 +215,7 @@ export function LessonModalFrom({ use, id }) {
                 )}
               />
               {errors["Class Level"] && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-destructive text-sm mt-1">
                   {errors["Class Level"].message}
                 </p>
               )}
@@ -223,7 +225,7 @@ export function LessonModalFrom({ use, id }) {
               <div>
                 <DatePicker date={date} setDate={setDate} />
                 {dateError && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-destructive text-sm mt-1">
                     Scheduled date cannot be in the past.
                   </p>
                 )}
@@ -238,7 +240,7 @@ export function LessonModalFrom({ use, id }) {
                 {...register("description")}
               />
               {errors.description && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-destructive text-sm mt-1">
                   {errors.description.message}
                 </p>
               )}
