@@ -1,18 +1,28 @@
 import { Link } from "react-router";
 
 import LoginForm from "@/features/auth/LoginForm";
-
-// import loginImg from "/login.jpg";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Login() {
   return (
     <>
-      {/* <div className="max-lg:col-span-2 order-1 space-y-10 w-[80%] mx-auto flex flex-col justify-center"> */}
       <h1 className="lg:text-3xl text-xl text-center font-bold">
         Sign in to your account
       </h1>
 
-      <LoginForm />
+      {/* <LoginForm /> */}
+      <Tabs defaultValue="student" className="max-w-lg w-full mx-auto">
+        <TabsList className="w-full justify-center mb-4">
+          <TabsTrigger value="student">Student</TabsTrigger>
+          <TabsTrigger value="admin">Admin</TabsTrigger>
+        </TabsList>
+        <TabsContent value="student">
+          <LoginForm email="vibej36131@coasah.com" password="Vibej36131@" />
+        </TabsContent>
+        <TabsContent value="admin">
+          <LoginForm email="team2@gmail.com" password="Team123@" />
+        </TabsContent>
+      </Tabs>
 
       <div className="flex flex-col gap-4">
         <p className="text-center text-sm">
@@ -31,15 +41,6 @@ export default function Login() {
           </Link>
         </p>
       </div>
-      {/* </div> */}
-
-      {/* <div className="h-dvh max-lg:hidden">
-        <img
-          src={loginImg}
-          alt="log in image"
-          className="object-cover h-full w-full"
-        />
-      </div> */}
     </>
   );
 }

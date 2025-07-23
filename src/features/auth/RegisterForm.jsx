@@ -1,29 +1,30 @@
-import LoadingButton from "@/components/LoadingButton";
+import { Link } from "react-router";
+import { Eye, EyeOff } from "lucide-react";
+
 import {
-  FormControl,
-  FormField,
   FormItem,
   FormLabel,
+  FormField,
   FormMessage,
+  FormControl,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import {
   Select,
-  SelectContent,
-  SelectGroup,
   SelectItem,
   SelectLabel,
-  SelectTrigger,
+  SelectGroup,
   SelectValue,
+  SelectTrigger,
+  SelectContent,
 } from "@/components/ui/select";
-import { Eye, EyeOff } from "lucide-react";
-import { Link } from "react-router";
+import { Input } from "@/components/ui/input";
+import LoadingButton from "@/components/LoadingButton";
 
 export function RegisterFormInputs({
   form,
+  admin,
   showPassword,
   setShowPassword,
-  admin,
 }) {
   return (
     <>
@@ -61,7 +62,11 @@ export function RegisterFormInputs({
                             type="button"
                             className="input-icon"
                           >
-                            {showPassword ? <Eye /> : <EyeOff />}
+                            {showPassword ? (
+                              <Eye className="size-4" />
+                            ) : (
+                              <EyeOff className="size-4" />
+                            )}
                           </button>
                         )}
                       </div>
@@ -138,11 +143,7 @@ export function RegisterFormInputs({
           </div>
         );
       })}
-      {!admin && (
-        <Link to="/auth" className="!mt-0 w-fit underline">
-          already have an account? login
-        </Link>
-      )}
+
       <LoadingButton type="submit" loading={form.formState.isSubmitting}>
         Sign up
       </LoadingButton>

@@ -1,4 +1,17 @@
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Loader2, Pen, PlusCircle } from "lucide-react";
+
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import {
   Dialog,
   DialogClose,
@@ -9,27 +22,17 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { DatePicker } from "./DatePicker";
+import { Textarea } from "../ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Loader2, Pen, PlusCircle } from "lucide-react";
-import { Textarea } from "../ui/textarea";
-import { Controller, useForm } from "react-hook-form";
-import { DatePicker } from "./DatePicker";
-import { useEffect, useState } from "react";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { lessonFormSchema } from "@/validations/LessonFormSchema";
+import { Button } from "@/components/ui/button";
+
 import useCreateLesson from "@/features/lesson/useCreateLesson";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+
 import { updateLesson } from "@/services/lessonAPI";
-// import useLessons from "@/features/lessons/useLessons";
+
+import { lessonFormSchema } from "@/validations/LessonFormSchema";
 
 export function LessonModalFrom({ use, id, paginatedLessons }) {
   const { mutateAsync: createLesson } = useCreateLesson();
@@ -39,7 +42,7 @@ export function LessonModalFrom({ use, id, paginatedLessons }) {
   const [date, setDate] = useState(today);
   const [dateError, setDateError] = useState(false);
   const formattedDate = new Date(date).toISOString().split("T")[0];
-  // const { lessons } = useLessons();
+  
   const [lessonToEdit, setLessonToEdit] = useState(null);
 
   const {
@@ -89,7 +92,7 @@ export function LessonModalFrom({ use, id, paginatedLessons }) {
     } else {
       setDateError(false);
     }
-  }, [date]);
+  }, [date, today]);
 
   const inputs = [
     { name: "Title", placeholder: "Enter lesson title" },
@@ -148,9 +151,7 @@ export function LessonModalFrom({ use, id, paginatedLessons }) {
         <Button
           size={use === "Add" ? "default" : "sm"}
           variant={use === "Add" ? "default" : "ghost"}
-          className={
-            use === "Add" ? `bg-primary text-white flex items-center gap-2` : ""
-          }
+          className={use === "Add" ? `flex items-center gap-2` : ""}
         >
           {use === "Add" ? (
             <>
@@ -181,7 +182,7 @@ export function LessonModalFrom({ use, id, paginatedLessons }) {
                   {...register(input.name)}
                 />
                 {errors[input.name] && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-destructive text-sm mt-1">
                     {errors[input.name].message}
                   </p>
                 )}
@@ -214,7 +215,7 @@ export function LessonModalFrom({ use, id, paginatedLessons }) {
                 )}
               />
               {errors["Class Level"] && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-destructive text-sm mt-1">
                   {errors["Class Level"].message}
                 </p>
               )}
@@ -224,7 +225,7 @@ export function LessonModalFrom({ use, id, paginatedLessons }) {
               <div>
                 <DatePicker date={date} setDate={setDate} />
                 {dateError && (
-                  <p className="text-red-500 text-sm mt-1">
+                  <p className="text-destructive text-sm mt-1">
                     Scheduled date cannot be in the past.
                   </p>
                 )}
@@ -239,7 +240,7 @@ export function LessonModalFrom({ use, id, paginatedLessons }) {
                 {...register("description")}
               />
               {errors.description && (
-                <p className="text-red-500 text-sm mt-1">
+                <p className="text-destructive text-sm mt-1">
                   {errors.description.message}
                 </p>
               )}
