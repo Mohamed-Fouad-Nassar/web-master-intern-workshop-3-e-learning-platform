@@ -19,12 +19,12 @@ import useLogin from "./useLogin";
 
 import { LoginSchema } from "@/validations/LoginSchema";
 
-export default function LoginForm() {
+export default function LoginForm({ email = "", password = "" }) {
   const form = useForm({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email,
+      password,
     },
   });
   const [showPassword, setShowPassword] = useState(false);
@@ -35,7 +35,7 @@ export default function LoginForm() {
     if (data.email === "S_admin@gmail.com") {
       form.setError("email", {
         type: "manual",
-        message: "unauthorized to access this api!lol",
+        message: "unauthorized to access this api! lol",
       });
       return null;
     }
@@ -46,7 +46,7 @@ export default function LoginForm() {
   return (
     <Form {...form}>
       <form
-        className="max-w-lg mx-auto flex flex-col w-full gap-4 [&_label]:font-bold [&_label]:text-base"
+        className="flex flex-col w-full gap-4 [&_label]:font-bold [&_label]:text-base"
         onSubmit={form.handleSubmit(onSubmit)}
       >
         <FormField

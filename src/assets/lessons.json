@@ -4,7 +4,7 @@
     "description": "This lesson introduces the fundamental concepts of algebra, including variables, expressions, and simple equations. Ideal for beginners in secondary education.",
     "video": "https://www.youtube.com/watch?v=ZQ9WXRQ2bRQ",
     "classLevel": "Grade 1 Secondary",
-    "scheduledDate": "2025-06-20",
+    "scheduledDate": "2025-07-11",
     "price": 40
   },
   {
@@ -12,7 +12,7 @@
     "description": "Learn how to interpret and perform operations with fractions, including addition, subtraction, multiplication, and division.",
     "video": "https://www.youtube.com/watch?v=6xJxFq3u1Qc",
     "classLevel": "Grade 1 Secondary",
-    "scheduledDate": "2025-06-22",
+    "scheduledDate": "2025-07-20",
     "price": 45
   },
   {
@@ -20,7 +20,7 @@
     "description": "Explore geometric shapes, lines, angles, and their properties. This lesson lays the foundation for future geometry topics.",
     "video": "https://www.youtube.com/watch?v=lWDha0kij5A",
     "classLevel": "Grade 1 Secondary",
-    "scheduledDate": "2025-06-24",
+    "scheduledDate": "2025-07-08",
     "price": 50
   },
   {
@@ -28,7 +28,7 @@
     "description": "Dive deeper into algebra by learning how to solve single-variable linear equations step-by-step.",
     "video": "https://www.youtube.com/watch?v=1VJjXwzE3ZY",
     "classLevel": "Grade 1 Secondary",
-    "scheduledDate": "2025-06-26",
+    "scheduledDate": "2025-07-14",
     "price": 55
   },
   {
@@ -36,7 +36,7 @@
     "description": "Understand how to collect, organize, and represent data using charts, tables, and graphs.",
     "video": "https://www.youtube.com/watch?v=FoWWy3fOUJ8",
     "classLevel": "Grade 1 Secondary",
-    "scheduledDate": "2025-06-28",
+    "scheduledDate": "2025-07-15",
     "price": 50
   },
   {
@@ -44,7 +44,7 @@
     "description": "Apply arithmetic operations to solve real-world problems, focusing on logic, strategy, and units.",
     "video": "https://www.youtube.com/watch?v=FZg8vRGK3eo",
     "classLevel": "Grade 1 Secondary",
-    "scheduledDate": "2025-06-30",
+    "scheduledDate": "2025-07-26",
     "price": 60
   },
   {
@@ -52,7 +52,7 @@
     "description": "Learn how ratios and proportions are used in daily life and how to solve problems using cross multiplication.",
     "video": "https://www.youtube.com/watch?v=ZvfD2EGRgZ8",
     "classLevel": "Grade 1 Secondary",
-    "scheduledDate": "2025-07-01",
+    "scheduledDate": "2025-07-17",
     "price": 65
   },
   {
@@ -60,7 +60,7 @@
     "description": "Get introduced to plotting data on coordinate planes, understanding line graphs, and interpreting plotted data.",
     "video": "https://www.youtube.com/watch?v=yUCdyT1gW9o",
     "classLevel": "Grade 1 Secondary",
-    "scheduledDate": "2025-07-03",
+    "scheduledDate": "2025-07-08",
     "price": 50
   },
   {
@@ -68,7 +68,7 @@
     "description": "Learn how to construct and simplify algebraic expressions, and explore their real-life applications.",
     "video": "https://www.youtube.com/watch?v=Cxk7nMRl5Gg",
     "classLevel": "Grade 1 Secondary",
-    "scheduledDate": "2025-07-05",
+    "scheduledDate": "2025-07-09",
     "price": 55
   },
   {
@@ -76,7 +76,7 @@
     "description": "This lesson reviews key concepts from the unit, including algebra basics, equations, and arithmetic operations, with practice problems and solutions.",
     "video": "https://www.youtube.com/watch?v=SwlXKX5gD8A",
     "classLevel": "Grade 1 Secondary",
-    "scheduledDate": "2025-07-07",
+    "scheduledDate": "2025-07-10",
     "price": 50
   },
   {
@@ -84,7 +84,7 @@
     "description": "Explore the number line, positive and negative integers, and how to perform operations using the number line.",
     "video": "https://www.youtube.com/watch?v=yRTrXLnjdF4",
     "classLevel": "Grade 2 Secondary",
-    "scheduledDate": "2025-07-09",
+    "scheduledDate": "2025-07-11",
     "price": 40
   },
   {
@@ -92,7 +92,7 @@
     "description": "Understand decimal numbers, place value, and how to perform arithmetic operations involving decimals.",
     "video": "https://www.youtube.com/watch?v=2Yv9bGgEvW4",
     "classLevel": "Grade 2 Secondary",
-    "scheduledDate": "2025-07-11",
+    "scheduledDate": "2025-07-12",
     "price": 45
   },
   {
@@ -108,7 +108,7 @@
     "description": "Learn how percentages are used in discounts, taxes, and financial literacy with real-world examples.",
     "video": "https://www.youtube.com/watch?v=p6RaMGDp3zY",
     "classLevel": "Grade 2 Secondary",
-    "scheduledDate": "2025-07-15",
+    "scheduledDate": "2025-07-14",
     "price": 50
   },
   {
@@ -116,7 +116,7 @@
     "description": "An introduction to probability, covering simple events, outcomes, and how to calculate basic probabilities.",
     "video": "https://www.youtube.com/watch?v=uzkc-qNVoOk",
     "classLevel": "Grade 2 Secondary",
-    "scheduledDate": "2025-07-17",
+    "scheduledDate": "2025-07-15",
     "price": 60
   },
   {
@@ -124,7 +124,7 @@
     "description": "Learn how to calculate the area and perimeter of rectangles and squares using formulas and examples.",
     "video": "https://www.youtube.com/watch?v=rSVMrPu0__U",
     "classLevel": "Grade 2 Secondary",
-    "scheduledDate": "2025-07-19",
+    "scheduledDate": "2025-07-16",
     "price": 50
   },
   {
@@ -132,7 +132,7 @@
     "description": "Understand how to read time, convert between units, and measure objects using standard units.",
     "video": "https://www.youtube.com/watch?v=GEhd5CrJ4n4",
     "classLevel": "Grade 2 Secondary",
-    "scheduledDate": "2025-07-21",
+    "scheduledDate": "2025-07-17",
     "price": 40
   },
   {
@@ -140,7 +140,7 @@
     "description": "Identify and classify different types of angles (acute, right, obtuse), and learn how to measure them.",
     "video": "https://www.youtube.com/watch?v=3lOMp5zL4Sg",
     "classLevel": "Grade 2 Secondary",
-    "scheduledDate": "2025-07-23",
+    "scheduledDate": "2025-07-18",
     "price": 45
   },
   {
@@ -148,7 +148,7 @@
     "description": "Learn the properties of different types of triangles and how to draw them with accuracy.",
     "video": "https://www.youtube.com/watch?v=7gUcW8nqO1I",
     "classLevel": "Grade 2 Secondary",
-    "scheduledDate": "2025-07-25",
+    "scheduledDate": "2025-07-19",
     "price": 55
   },
   {
@@ -156,7 +156,95 @@
     "description": "Explore the concept of symmetry, reflective patterns, and how they appear in art and nature.",
     "video": "https://www.youtube.com/watch?v=YFzktJNmnPU",
     "classLevel": "Grade 2 Secondary",
-    "scheduledDate": "2025-07-27",
+    "scheduledDate": "2025-07-20",
     "price": 50
+  },
+  {
+    "title": "Advanced Algebra Techniques",
+    "description": "Learn how to factor quadratic equations, simplify rational expressions, and solve algebraic inequalities.",
+    "video": "https://www.youtube.com/watch?v=wuKJ9BzjsOE",
+    "classLevel": "Grade 3 Secondary",
+    "scheduledDate": "2025-07-21",
+    "price": 70
+  },
+  {
+    "title": "Trigonometry Essentials",
+    "description": "Explore sine, cosine, and tangent functions with right triangles and understand their applications.",
+    "video": "https://www.youtube.com/watch?v=8pTEmbeENF4",
+    "classLevel": "Grade 3 Secondary",
+    "scheduledDate": "2025-07-22",
+    "price": 75
+  },
+  {
+    "title": "Advanced Geometry: Circles and Arcs",
+    "description": "Understand circle theorems, calculate arc lengths, and apply properties of chords and tangents.",
+    "video": "https://www.youtube.com/watch?v=w6g1yQV0dIY",
+    "classLevel": "Grade 3 Secondary",
+    "scheduledDate": "2025-07-23",
+    "price": 65
+  },
+  {
+    "title": "Statistical Analysis and Interpretation",
+    "description": "Dive into mean, median, mode, and standard deviation. Learn how to interpret datasets and distributions.",
+    "video": "https://www.youtube.com/watch?v=vFF3z9zVFe4",
+    "classLevel": "Grade 3 Secondary",
+    "scheduledDate": "2025-07-24",
+    "price": 70
+  },
+  {
+    "title": "Introduction to Calculus",
+    "description": "Begin exploring the world of calculus with an introduction to limits, continuity, and the concept of change. A stepping stone into advanced mathematics.",
+    "video": "https://www.youtube.com/watch?v=WUvTyaaNkzM",
+    "classLevel": "Grade 3 Secondary",
+    "scheduledDate": "2025-07-25",
+    "price": 80
+  },
+  {
+    "title": "Matrix Basics and Operations",
+    "description": "Understand what matrices are, how to add, subtract, and multiply them, and their role in solving systems of equations.",
+    "video": "https://www.youtube.com/watch?v=vo2YwXJYz4A",
+    "classLevel": "Grade 3 Secondary",
+    "scheduledDate": "2025-07-26",
+    "price": 70
+  },
+  {
+    "title": "Vectors and Their Applications",
+    "description": "Explore vectors in two dimensions, vector operations, and real-world physics applications involving direction and magnitude.",
+    "video": "https://www.youtube.com/watch?v=fNk_zzaMoSs",
+    "classLevel": "Grade 3 Secondary",
+    "scheduledDate": "2025-07-27",
+    "price": 75
+  },
+  {
+    "title": "Introduction to Logarithms",
+    "description": "Learn what logarithms are, their properties, and how to use them to solve exponential equations.",
+    "video": "https://www.youtube.com/watch?v=4EP8zNkmWv4",
+    "classLevel": "Grade 3 Secondary",
+    "scheduledDate": "2025-07-28",
+    "price": 70
+  },
+  {
+    "title": "Binomial Theorem and Expansions",
+    "description": "Explore the binomial theorem, Pascal's Triangle, and how to expand expressions using combinations.",
+    "video": "https://www.youtube.com/watch?v=2MGQeKjvCmI",
+    "classLevel": "Grade 3 Secondary",
+    "scheduledDate": "2025-07-29",
+    "price": 65
+  },
+  {
+    "title": "Differentiation Techniques",
+    "description": "Master the basic rules of differentiation including power, product, and chain rules with solved examples.",
+    "video": "https://www.youtube.com/watch?v=T-oG94o_lFQ",
+    "classLevel": "Grade 3 Secondary",
+    "scheduledDate": "2025-07-30",
+    "price": 85
+  },
+  {
+    "title": "Introduction to Integration",
+    "description": "Understand the fundamentals of integration as the reverse of differentiation, and its use in calculating areas under curves.",
+    "video": "https://www.youtube.com/watch?v=Gx8n2-5q_Wg",
+    "classLevel": "Grade 3 Secondary",
+    "scheduledDate": "2025-07-31",
+    "price": 85
   }
 ]

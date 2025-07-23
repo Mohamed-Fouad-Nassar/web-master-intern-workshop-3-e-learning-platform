@@ -32,3 +32,34 @@ export function axiosErrorHandler(error, message) {
 
   return message;
 }
+
+export function convertToYoutubeEmbedUrl(url) {
+  try {
+    const parsedUrl = new URL(url);
+    let videoId = null;
+
+    if (parsedUrl.hostname === "youtu.be")
+      videoId = parsedUrl.pathname.slice(1);
+    else if (
+      parsedUrl.hostname.includes("youtube.com") &&
+      parsedUrl.pathname === "/watch"
+    )
+      videoId = parsedUrl.searchParams.get("v");
+    else if (
+      parsedUrl.hostname.includes("youtube.com") &&
+      parsedUrl.pathname.startsWith("/embed/")
+    )
+      return url;
+    else if (
+      parsedUrl.hostname.includes("youtube.com") &&
+      parsedUrl.pathname.startsWith("/shorts/")
+    )
+      videoId = parsedUrl.pathname.split("/")[2];
+
+    if (videoId) return `https://www.youtube.com/embed/${videoId}`;
+
+    return null;
+  } catch {
+    return null;
+  }
+}

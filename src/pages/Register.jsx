@@ -1,11 +1,13 @@
+import { useState } from "react";
+import { Link } from "react-router";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RegisterSchema } from "@/validations/RegisterSchema";
+
 import { Form } from "@/components/ui/form";
-import { useState } from "react";
+import { RegisterFormInputs } from "@/features/auth/RegisterForm";
 
 import { RegisterUser } from "@/services/AuthAPI";
-import { RegisterFormInputs } from "@/features/auth/RegisterForm";
 
 export default function Register() {
   const form = useForm({
@@ -13,10 +15,8 @@ export default function Register() {
     defaultValues,
   });
 
-  // toggle the password visibility
   const [showPassword, setShowPassword] = useState(false);
 
-  // on submit handler
   const onSubmit = async (data) => {
     const { fn, ln, ...rest } = data;
     const userData = {
@@ -28,19 +28,29 @@ export default function Register() {
   };
 
   return (
-    <Form {...form}>
-      <div className="max-lg:col-span-2 space-y-20 w-[80%] mx-auto flex flex-col justify-center">
-        <h1 className="lg:text-3xl text-xl text-center font-bold">
-          Create your account
-        </h1>
-        <form
-          className="flex flex-col w-full gap-6 [&_label]:font-bold [&_label]:text-lg"
-          onSubmit={form.handleSubmit(onSubmit)}
-        >
-          <RegisterFormInputs {...{ form, showPassword, setShowPassword }} />
-        </form>
+    <>
+      <h1 className="lg:text-3xl text-xl text-center font-bold">
+        Create your account
+      </h1>
+
+      <div className="space-y-8 max-w-lg mx-auto flex flex-col justify-center">
+        <Form {...form}>
+          <form
+            className="flex flex-col w-full gap-4 [&_label]:font-bold [&_label]:text-base"
+            onSubmit={form.handleSubmit(onSubmit)}
+          >
+            <RegisterFormInputs {...{ form, showPassword, setShowPassword }} />
+          </form>
+        </Form>
+
+        <p className="text-center text-sm">
+          already have an account?{" "}
+          <Link to="/auth" className="underline hover:text-primary">
+            login
+          </Link>
+        </p>
       </div>
-    </Form>
+    </>
   );
 }
 
@@ -51,5 +61,5 @@ const defaultValues = {
   password: "",
   cpassword: "",
   phoneNumber: "",
-  calssLevel:""
+  calssLevel: "",
 };
