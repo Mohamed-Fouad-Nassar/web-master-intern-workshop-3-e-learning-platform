@@ -28,14 +28,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 
-import useLessons from "@/features/lessons/useLessons";
 import useCreateLesson from "@/features/lesson/useCreateLesson";
 
 import { updateLesson } from "@/services/lessonAPI";
 
 import { lessonFormSchema } from "@/validations/LessonFormSchema";
 
-export function LessonModalFrom({ use, id }) {
+export function LessonModalFrom({ use, id, paginatedLessons }) {
   const { mutateAsync: createLesson } = useCreateLesson();
   const [loading, setLoading] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -43,8 +42,9 @@ export function LessonModalFrom({ use, id }) {
   const [date, setDate] = useState(today);
   const [dateError, setDateError] = useState(false);
   const formattedDate = new Date(date).toISOString().split("T")[0];
-  const { lessons } = useLessons();
+  
   const [lessonToEdit, setLessonToEdit] = useState(null);
+
   const {
     register,
     handleSubmit,
@@ -66,10 +66,10 @@ export function LessonModalFrom({ use, id }) {
   // Reset form with lesson data when editing
   useEffect(() => {
     if (isDialogOpen && use === "Edit") {
-      const lesson = lessons.find((lesson) => lesson._id == id);
+      const lesson = paginatedLessons.find((lesson) => lesson._id == id);
       setLessonToEdit(lesson);
     }
-  }, [isDialogOpen, use, id, lessons]);
+  }, [isDialogOpen, use, id, paginatedLessons]);
 
   useEffect(() => {
     if (lessonToEdit) {
